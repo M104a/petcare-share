@@ -5,8 +5,10 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(),tailwindcss()],
-  root: ".", // ✅ プロジェクトルート
+  root: ".", // ✅ プロジェクトのルートを指定
+  publicDir: "public", // ✅ publicフォルダを認識させる
   build: {
-    outDir: "dist", // ✅ 出力先（Vercelが読む場所）
+    outDir: "dist", // ✅ 出力先を指定
+    emptyOutDir: true, // ✅ 古いビルドを消して再生成
   },
 })
