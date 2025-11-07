@@ -4,16 +4,19 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  plugins: [react(),tailwindcss()],
+  plugins: [react(), tailwindcss()],
   root: ".", // ✅ ルートを明示
   publicDir: "public",
   build: {
     outDir: "dist", // ✅ 出力先を指定
     emptyOutDir: true,
+    rollupOptions: {
+      input: "./index.html", // ✅ ← ★ これを追加！！
+    },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"), // ✅ パスエイリアスを明示（たまに必要）
+      "@": path.resolve(__dirname, "./src"), // ✅ パスエイリアスを明示
     },
   },
 })
